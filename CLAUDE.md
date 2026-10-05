@@ -27,7 +27,7 @@ Planned stack:
 
 Core data entities: Users, Drinks Catalog, Consumption Logs (users ↔ logs ↔ catalog drinks).
 
-`Plan.md` also asks for an architecture overview, PostgreSQL schema, REST API design, and a phased roadmap. None of these exist yet.
+The full project plan, covering architecture, Widmark algorithm, PostgreSQL schema, REST API and phased roadmap, is in `docs/PROJECT_PLAN.md`. Decisions recorded there: backend is Python + FastAPI (SQLAlchemy 2 + Alembic); identity is an anonymous session token first; BAC bands are contiguous: green < 0.03, yellow 0.03–<0.06, orange 0.06–<0.08, red ≥ 0.08.
 
 ## Rules
 
