@@ -1,5 +1,25 @@
 # BAC Tracker — Project Plan
 
+## Current status (last updated 2026-10-04)
+
+| Phase | Status |
+|---|---|
+| 0 Foundations | ✅ Done (commits `026ac95`, `12d8c8d`, `26f29d6`, pushed to `origin/dev`) |
+| 1 Database and sessions | ⏭️ **Next**: start with SQLAlchemy models + Alembic initial migration |
+| 2–5 | Not started |
+
+**What exists now**
+- `backend/`: FastAPI app with only `GET /api/v1/health`; `app/config.py` settings (`DATABASE_URL`, read from env, repo-root `.env` or `backend/.env`); `requirements.txt` includes SQLAlchemy, Alembic and psycopg, but none of them are used yet.
+- `frontend/`: minimal Vite + React page that calls `/api/v1/health` and shows the status (Vite proxies `/api` to `VITE_API_PROXY_TARGET` or `localhost:8000`).
+- `docker-compose.yml`: `db` (postgres:16, healthcheck), `api` (uvicorn `--reload`, waits for db), `web` (Vite dev server); `.env.example`, `.gitignore`, README.
+
+**Notes for the next session**
+- The compose stack has **not** been run yet because Docker isn't installed on the dev machine. Checks so far: the frontend `npm run build` passes, uvicorn serves `/api/v1/health` and `/docs` locally, and the compose YAML is valid. Run `docker compose up --build` once Docker is available.
+- The local Python is 3.14; the backend image uses 3.12.
+- FastAPI's `TestClient` needs an HTTP client package that is not in `requirements.txt` yet (the installed Starlette asked for `httpx2`). Add it to a dev/test requirements file during the Phase 1 pytest setup.
+- Phase 1 also needs the `api` container to run `alembic upgrade head` on startup (see §2).
+- Workflow rules (from `CLAUDE.md`): branch `dev` only, one commit per task (`feat: …`), push after each commit.
+
 ## 1. Overview and scope
 
 A full-stack web app that estimates and tracks a user's Blood Alcohol Concentration (BAC) in real time, using the Widmark formula.
@@ -224,7 +244,7 @@ Every endpoint except `POST /sessions`, `GET /drinks` and `GET /health` requires
 
 Work happens on the `dev` branch. Each bullet is one task and one commit (`feat: <brief explanation>`).
 
-### Phase 0: Foundations
+### Phase 0: Foundations ✅
 - Backend and frontend skeleton directories and Dockerfiles.
 - `docker-compose.yml` (db, api, web), `.env.example`, `.gitignore`.
 - README with setup and run instructions.
