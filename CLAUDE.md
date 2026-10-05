@@ -31,4 +31,4 @@ The full project plan, covering architecture, Widmark algorithm, PostgreSQL sche
 
 ## Rules
 
-We will only work on a branch named dev. Every task you made is separated and commited independently, each commit must be normalized in this way (feat:brief explain of what you did)
+We will only work on a branch named dev. Every task you made is separated and commited independently then pushed, each commit must be normalized in this way (feat:brief explain of what you did)

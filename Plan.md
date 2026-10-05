@@ -11,9 +11,10 @@ Infrastructure: Docker
 ## Core Features:
 
 User Onboarding: Collect essential biological data (weight in kg, biological sex) needed for the Widmark constant. This should be saved per session or user profile.
-Drink Catalog: A pre-populated database table of common drinks with standard volumes (ml) and ABV (Alcohol by Volume) percentages, so users don't have to input these manually.
+Drink Catalog: A pre-populated database table of common drinks with standard volumes (ml) and ABV (Alcohol by Volume) percentages, so users don't have to input these manually. (start with the 5 most common drinks in Mexico)
 Real-Time Tracking: A UI where users can easily add a drink ("+1 Beer", "+1 Shot") with an automatic timestamp.
 BAC Calculation & UI: A backend controller that calculates the current BAC using the accumulated drinks and time elapsed. The frontend should display a dynamic progress bar or color-coded thresholds (e.g., Green: <0.03, Yellow: 0.04-0.06, Red: >0.08) indicating their intoxication level.
+
 Please provide a comprehensive project plan including:
 
 ## System Architecture Overview: 
